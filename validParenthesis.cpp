@@ -1,22 +1,38 @@
 #include <iostream>
 #include <stack>
-using namespace std;
+#include <unordered_map>
 
+using namespace std;
+bool isValidParethesis(string &s){
+    unordered_map <char, char> umap={{']','['}, {'}','{'}, {')','('}};
+    stack <char> stk;
+
+    for(const auto &c: s){
+        if(umap.find(c)!=umap.end()){
+            if(stk.empty()){
+                return false;
+            }
+
+            if(stk.top()!=umap[c]){
+                return false;
+            }
+
+            stk.pop();
+        }
+
+        else{
+            stk.push(c);
+        }
+
+    }; 
+    
+return stk.empty();
+}
 int main()
 {
     string s = "{[()]}";
-    stack<char> paren;
-    for (int i = 0; i < s.size(); i++)
-    {
-        paren.push(s[i]);
-    }
+    bool result=isValidParethesis(s);
+    return result;
 
-    while (!paren.empty())
-    {
-        cout << paren.top() << endl;
-
-        paren.pop();
-    }
-
-    return 0;
+   
 }
