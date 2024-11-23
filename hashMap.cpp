@@ -1,6 +1,6 @@
 #include <iostream>
 #include <unordered_map>
-
+#include <unordered_set>
 using namespace std;
 int main(){
     unordered_map<string, int> umap;
@@ -16,5 +16,15 @@ int main(){
 cout<< umap["Apple"];
 umap["Apple"]=20;
 cout<< umap["Apple"];
+
+unordered_set<string> hello;
+hello.insert("updog");
+hello.insert("what is" );
+
+
+
+for(auto c: hello){
+    cout<<c<<endl;
+}
     return 0;
 }

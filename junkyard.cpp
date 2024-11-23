@@ -10,4 +10,12 @@ for(const auto &c: nums){
     cout<< c<<endl;
 
 }
+
+
+char h='2';
+string num="12345";
+int v=num[3]-'0';
+
+cout<<v;
+
 }
